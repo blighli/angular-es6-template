@@ -122,8 +122,8 @@ module.exports = function (grunt) {
       },
       assetsProd: {
         src: ['**'],
-        dest: '<%= prodDir %>/assets',
-        cwd: '<%= devDir %>/assets',
+        dest: '<%= prodDir %>/src/assets',
+        cwd: '<%= devDir %>/src/assets',
         expand: true
       },
       jsProd: {
@@ -133,10 +133,18 @@ module.exports = function (grunt) {
           'jspm_packages/system.js.map',
           'jspm_packages/es6-module-loader.js',
           'jspm_packages/es6-module-loader.js.map',
+          'jspm_packages/**/*.png',
+          'jspm_packages/**/*.jpg',
+          'jspm_packages/**/*.gif',
+          'jspm_packages/**/*.woff',
+          'jspm_packages/**/*.woff2',
+          'jspm_packages/**/*.ttf',
+          'jspm_packages/**/*.svg',
           'config.js',
           'build.js',
           'build.js.map',
           'src/main.js',
+          'src/app/settings.js',
           'src/cmv.appcache'
         ],
         dest: '<%= prodDir %>',
@@ -289,14 +297,15 @@ module.exports = function (grunt) {
         src: [
           '**/*.js',
           '**/*.css',
-          'assets/**/*.png',
-          'assets/**/*.ttf',
-          'assets/**/*.woff',
-          'assets/**/*.jpg',
-          'assets/**/*.gif',
-          'assets/**/*.ico'
+          '**/*.png',
+          '**/*.ttf',
+          '**/*.woff',
+          '**/*.woff2',
+          '**/*.jpg',
+          '**/*.gif',
+          '**/*.ico'
         ],
-        dest: 'build/production/cmv.appcache'
+        dest: 'build/production/application.manifest'
       }
     },
 
@@ -324,7 +333,7 @@ module.exports = function (grunt) {
       },
 
       jspm_build: {
-        command: 'cd <%= devDir %> && node ../../node_modules/jspm/jspm.js bundle src/main - cmv/settings - build.json! + json  build.js --minify',
+        command: 'cd <%= devDir %> && node ../../node_modules/jspm/jspm.js bundle src/main - src/app/settings build.js --minify',
         options: {
           cwd: '<%= devDir %>'
         }
@@ -354,8 +363,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev', 'sass',
     'shell:jspm_build_vendor', 'index:development']);
 
-  grunt.registerTask('compile', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev',
-    'shell:jspm_build', 'copyProd', 'concat', 'index:production']);
+  grunt.registerTask('compile', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev', 'sass',
+    'shell:jspm_build', 'copyProd', 'concat', 'manifest', 'index:production']);
 
   grunt.registerTask('default', ['build']);
 

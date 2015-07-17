@@ -9,9 +9,9 @@ class Controller extends BaseController {
     super();
 
     this.navigation = [
-      { state: 'home', label: 'Home' },
-      { state: 'list', label: 'List Books' },
-      { state: 'search', label: 'Search' }
+      { state: 'home', label: 'Home', symbol: 'home' },
+      { state: 'list', label: 'List Books', symbol: 'list' },
+      { state: 'search', label: 'Search', symbol: 'search' }
     ];
   }
 
@@ -30,8 +30,6 @@ app.directive('mainNavigation', () => {
     controllerAs: 'cn',
     link: link,
     scope: {},
-    bindToController: {
-      lastName: '@'
-    }
+    bindToController: {}
   }
 });

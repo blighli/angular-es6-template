@@ -3,6 +3,7 @@ import 'lodash';
 import 'moment';
 import 'bluebird';
 import 'immutable';
+import 'eventemitter2';
+import 'loglevel';
 import 'angular';
 import 'angular-ui-router';
-import 'loglevel';
