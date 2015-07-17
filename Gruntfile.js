@@ -98,8 +98,7 @@ module.exports = function (grunt) {
           'config.js',
           'package.json',
           'jspm_packages/**/*',
-          'vendor/**/*.js',
-          'src/cmv.appcache'
+          'vendor/**/*.js'
         ],
         dest: '<%= devDir %>/'
       },
@@ -108,7 +107,10 @@ module.exports = function (grunt) {
         dest: '<%= devDir %>/'
       },
       assets: {
-        src: ['assets/**/*'],
+        src: [
+          'assets/**/*',
+          'favicon.ico'
+        ],
         dest: '<%= devDir %>/',
         cwd: 'src',
         expand: true
@@ -145,7 +147,7 @@ module.exports = function (grunt) {
           'build.js.map',
           'src/main.js',
           'src/app/settings.js',
-          'src/cmv.appcache'
+          'favicon.ico'
         ],
         dest: '<%= prodDir %>',
         expand: true
@@ -179,13 +181,13 @@ module.exports = function (grunt) {
       },
 
       jspm: {
-        files: ['package.json', 'config.js', 'src/vendor.js', 'src/cmv.appcache'],
+        files: ['package.json', 'config.js', 'src/vendor.js'],
         tasks: ['copy:vendorJs', 'shell:jspm_build_vendor']
       },
 
-      scripts: {
+      appScripts: {
         files: userConfig.appFiles.js,
-        tasks: ['copy:vendorJs', 'newer:babel:development'],
+        tasks: ['newer:babel:development'],
         options: {
           event: [
             'changed',

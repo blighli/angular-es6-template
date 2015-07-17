@@ -5,7 +5,7 @@ module.exports = {
   e2eCoverageDir: 'coverage/e2e',
 
   appFiles: {
-    js: ['src/app/app.js', 'src/**/*.js', '!src/vendor.js', '!src/**/*.spec.js', '!src/**/*.scenario.js', '!src/assets/**/*.js'],
+    js: ['src/app/app.js', 'src/**/*.js'],
     jsunit: ['src/**/*.spec.js', 'src/**/*.scenario.js'],
 
     atpl: ['src/app/**/*.tpl.html'],
