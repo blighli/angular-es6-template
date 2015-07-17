@@ -5,3 +5,4 @@ import 'bluebird';
 import 'immutable';
 import 'angular';
 import 'angular-ui-router';
+import 'loglevel';

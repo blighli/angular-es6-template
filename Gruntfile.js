@@ -205,6 +205,12 @@ module.exports = function (grunt) {
           'src/app/**/*.tpl.html'
         ],
         tasks: ['copy:templates'],
+        options: {
+          event: [
+            'changed',
+            'added'
+          ]
+        }
       }
     },
 
@@ -340,21 +346,20 @@ module.exports = function (grunt) {
   // renamed task(s).
 
   grunt.renameTask('watch', 'delta');
-
   grunt.renameTask('htmlbuild', 'index');
 
 
   // Default task(s).
 
-  grunt.registerTask('build', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev', 'copy:templates', 'sass', 'shell:jspm_build_vendor',
-    'index:development']);
+  grunt.registerTask('build', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev', 'sass',
+    'shell:jspm_build_vendor', 'index:development']);
 
   grunt.registerTask('compile', ['clean', 'shell:jspm_clean', 'concurrent:build', 'copyDev',
-    'ngAnnotate', 'shell:jspm_build', 'copyProd', 'concat', 'index:production']);
+    'shell:jspm_build', 'copyProd', 'concat', 'index:production']);
 
   grunt.registerTask('default', ['build']);
 
-  grunt.registerTask('copyDev', ['copy:vendorJs', 'babel:development', 'copy:vendorCss', 'copy:assets']);
+  grunt.registerTask('copyDev', ['copy:vendorJs', 'copy:templates', 'babel:development', 'copy:vendorCss', 'copy:assets']);
 
   grunt.registerTask('copyProd', ['copy:assetsProd', 'copy:jsProd']);
 

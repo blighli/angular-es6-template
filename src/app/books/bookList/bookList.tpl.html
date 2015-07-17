@@ -1,0 +1,29 @@
+<div>
+  <h2>JavaScript Books</h2>
+
+  <div ng-if="cn.loading">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+           aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">Loading</span>
+      </div>
+    </div>
+  </div>
+
+  <div ng-if="cn.books.length > 0">
+    <h3>Books</h3>
+
+    <ul>
+      <li ng-repeat="book in cn.books">
+        <h4>{{ book.title }}</h4>
+        <small>von {{ book.author }}</small>
+        <p><a ui-sref="detail({ id: book.id })">more ...</a></p>
+      </li>
+    </ul>
+
+
+
+  </div>
+
+
+</div>

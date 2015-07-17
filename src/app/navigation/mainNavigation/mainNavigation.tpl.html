@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li ng-repeat="item in cn.navigation" role="presentation" ui-sref-active="active">
+        <a ui-sref="{{item.state}}">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
