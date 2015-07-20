@@ -1,0 +1,72 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 86,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "bbuQoAEACAAJ",
+      "etag": "3jAD39rqrcA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/bbuQoAEACAAJ",
+      "volumeInfo": {
+        "title": "JavaScript objektorientiert",
+        "subtitle": "Verständlicher, flexibler, effizienter programmieren",
+        "authors": [
+          "Nicholas C. Zakas"
+        ],
+        "publishedDate": "2014-08",
+        "description": "Wenn Sie mit Programmiersprachen wie C++ oder Java vertraut sind, erscheint Ihnen JavaScript kaum objektorientiert. JavaScript kennt kein Klassenkonzept und Sie müssen nicht einmal Objekte definieren, um Programme zu erstellen. Lassen Sie sich aber nicht täuschen: JavaScript ist eine außerordentlich mächtige und ausdrucksstarke objektorientierte Sprache, die Ihnen selbst zahlreiche Designentscheidungen überlässt. In diesem kompakten Buch erforscht Nicholas Zakas mit Ihnen die objektorientierte Natur der Sprache und legt die einzigartige Implementierung der Vererbung und anderer Schlüsselkonze.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "3864902029"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9783864902024"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 121,
+        "printType": "BOOK",
+        "categories": [
+          "Electronic books"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.de/books/content?id=bbuQoAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.de/books/content?id=bbuQoAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.de/books?id=bbuQoAEACAAJ&dq=subject:javascript&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.de/books?id=bbuQoAEACAAJ&dq=subject:javascript&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.de/books/about/JavaScript_objektorientiert.html?hl=&id=bbuQoAEACAAJ"
+      },
+      "saleInfo": {
+        "country": "DE",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "DE",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.de/books/reader?id=bbuQoAEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

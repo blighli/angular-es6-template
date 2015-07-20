@@ -1,6 +1,7 @@
 import Actions from 'src/app/base/Actions';
 import request from 'src/app/backend/restCommunication';
 
+
 export class BooksActions extends Actions {
 
   fetchLatest() {

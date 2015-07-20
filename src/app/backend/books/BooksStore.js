@@ -17,11 +17,11 @@ class BooksStore extends Store {
 
     booksActions.on('fetchLatest.start', this.onFetchLatestStart);
     booksActions.on('fetchLatest.success', this.onFetchLatestSuccess);
-    booksActions.on('fetchLatest.error', this.onFetchLatestSuccess);
+    booksActions.on('fetchLatest.error', this.onFetchLatestError);
 
     booksActions.on('fetchList.start', this.onFetchListStart);
     booksActions.on('fetchList.success', this.onFetchListSuccess);
-    booksActions.on('fetchList.error', this.onFetchListSuccess);
+    booksActions.on('fetchList.error', this.onFetchListError);
   }
 
   @autobind
@@ -40,7 +40,6 @@ class BooksStore extends Store {
       error: null,
       loading: false
     };
-
   }
 
   @autobind
@@ -63,6 +62,7 @@ class BooksStore extends Store {
 
   @autobind
   onFetchListSuccess(data) {
+    console.log('hier suc2', data);
     let books = data.items.map(item => new Book(item));
 
     this.state = {
@@ -74,7 +74,7 @@ class BooksStore extends Store {
   }
 
   @autobind
-  onFetchlistError(error) {
+  onFetchListError(error) {
     this.state = {
       books: [],
       error: error,

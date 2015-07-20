@@ -5,18 +5,13 @@ import Promise from 'src/app/utils/promise';
 export function request(method, url, data) {
 
   return new Promise((resolve, reject) => {
-
     http()({
       method: method,
       url: url,
       data: data
     })
-      .success((data, status, headers) => {
-        resolve(data, status, headers);
-      })
-      .error((data, status, headers) => {
-        reject(data, status, headers);
-      });
+      .success(resolve)
+      .error(reject);
   });
 
 }

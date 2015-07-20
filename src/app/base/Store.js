@@ -1,10 +1,10 @@
-import {EventEmitter2} from 'eventemitter2';
+import ee from 'eventemitter2';
 import Immutable from 'immutable';
 
 export const STATE = Symbol('state');
 
 
-export default class Store extends EventEmitter2 {
+export default class Store extends ee.EventEmitter2 {
 
   constructor() {
     super();

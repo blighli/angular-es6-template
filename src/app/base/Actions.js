@@ -1,10 +1,10 @@
-import {EventEmitter2} from 'eventemitter2';
+import ee from 'eventemitter2';
 import Promise from 'src/app/utils/promise';
 
 import request from 'src/app/backend/restCommunication';
 
 
-export default class Actions extends EventEmitter2 {
+export default class Actions extends ee.EventEmitter2 {
 
   constructor() {
     super();
@@ -41,13 +41,24 @@ export default class Actions extends EventEmitter2 {
 
     promise
       .then((...data) => {
+        //console.log('promise suc', data);
         this.emit(name, ...data);
         this.emit(`${name}.success`, ...data);
       })
       .catch((...error) => {
+        //console.log('promise catch', name, error, error[0].message);
         this.emit(name, ...error);
         this.emit(`${name}.error`, ...error);
       });
+  }
+
+  on(event, listener) {
+    super.on(event, listener);
+
+    // return bound cleanup function
+    return () => {
+      this.off(event, listener);
+    }
   }
 
 }

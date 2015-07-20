@@ -3,7 +3,7 @@ import logger from './logger';
 
 Promise.longStackTraces();
 Promise.onPossiblyUnhandledRejection(error => {
-  logger.error('Promise rejected', error);
+  logger.error('Promise rejected and not handled', error, error.message);
 });
 
 // deprecated, but for Angular $q compatibility

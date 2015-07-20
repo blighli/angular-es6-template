@@ -9,8 +9,16 @@ System.config({
   },
   "paths": {
     "*": "*.js",
+    "test/*": "test/*",
     "github:*": "jspm_packages/github/*.js",
-    "npm:*": "jspm_packages/npm/*.js"
+    "npm:*": "jspm_packages/npm/*.js",
+    "babel": "node_modules/babel-core/browser.js",
+    "systemjs": "jspm_packages/system.js",
+    "system-polyfills": "node_modules/systemjs/dist/system-polyfills.js",
+    "es6-module-loader": "jspm_packages/es6-module-loader.js",
+    "systemjs.js.map": "jspm_packages/system.js.map",
+    "system-polyfills.js.map": "node_modules/systemjs/dist/system-polyfills.js.map",
+    "es6-module-loader.js.map": "jspm_packages/es6-module-loader.js.map"
   }
 });
 
@@ -26,6 +34,7 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "eventemitter2": "npm:eventemitter2@0.4.14",
     "immutable": "npm:immutable@3.7.4",
+    "json": "github:systemjs/plugin-json@0.1.0",
     "lodash": "npm:lodash@3.10.0",
     "loglevel": "npm:loglevel@1.3.1",
     "moment": "github:moment/moment@2.10.3",
