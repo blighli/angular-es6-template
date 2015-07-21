@@ -1,5 +1,6 @@
 import Model from 'src/app/base/Model';
 
+
 export default class Book extends Model {
 
   get id() {

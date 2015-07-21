@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Jul 20 2015 11:18:25 GMT+0200 (CEST)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -10,45 +10,63 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['systemjs', 'jasmine'],
+    //frameworks: ['systemjs', 'jasmine'],
+    frameworks: ['jspm', 'jasmine'],
 
-    systemjs: {
-      configFile: 'config.js',
-
-      config: {
-        transpiler: 'babel'
-      },
-
-      files: [
-        'jspm_packages/**/*.js',
-        'src/**/*.js',
-        'test/unit/**/*.js',
-        'test/unit/fixtures/**/*.json'
+    jspm: {
+      // Edit this to your needs
+      loadFiles: [
+        'test/unit/**/*.js'
       ],
+      serveFiles: [
+        'src/**/*.js',
+        'test/unit/fixtures/**/*.json'
+      ]
+    },
 
-      testFileSuffix: '.spec.js'
+    proxies: {
+      '/src/': '/base/src/',
+      '/test/': '/base/test/',
+      '/jspm_packages/': '/base/jspm_packages/'
+    },
+
+    coverageReporter: {
+      // configure the reporter to use isparta for JavaScript coverage
+      // Only on { "karma-coverage": "douglasduteil/karma-coverage#next" }
+      instrumenters: {isparta: require('isparta')},
+      instrumenter: {
+        '**/*.js': 'isparta'
+      },
+      instrumenterOptions: {
+        isparta: {babel: {stage: 0}}
+      },
+      dir: 'test/results/unit',
+      reporters: [
+        //{ type: 'text-summary' },
+        { type: 'teamcity', subdir: 'teamcity', file: 'teamcity.txt' },
+        { type: 'html', subdir: 'html' }
+      ]
     },
 
     // list of files / patterns to load in the browser
-    files: [
-    ],
+    files: [],
 
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/**/*.js': ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port

@@ -11,13 +11,9 @@ composer.lock
 build
 bin
 node_modules
-coverage
-coverage-cobertura
-reports
-docs
 src/app/settings.js
+test/e2e/settings.js
+test/results
 jspm_packages
 build-vendor.js
 build-vendor.js.map
-tests/e2e/results
-testresults

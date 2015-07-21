@@ -185,6 +185,11 @@ module.exports = function (grunt) {
         tasks: ['copy:vendorJs', 'shell:jspm_build_vendor']
       },
 
+      karma: {
+        files: ['src/**/*.js', 'test/**/*.js'],
+        tasks: ['karma:unit:run'] //NOTE the :run flag
+      },
+
       appScripts: {
         files: userConfig.appFiles.js,
         tasks: ['newer:babel:development'],
@@ -287,6 +292,14 @@ module.exports = function (grunt) {
       }
     },
 
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+        background: true,
+        singleRun: false
+      }
+    },
+
     manifest: {
       generate: {
         options: {
@@ -374,5 +387,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('copyProd', ['copy:assetsProd', 'copy:jsProd']);
 
-  grunt.registerTask('watch', ['build', 'connect:development', 'delta']);
+  grunt.registerTask('watch', ['build', 'connect:development', 'karma', 'delta']);
 };

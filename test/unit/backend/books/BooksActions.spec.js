@@ -1,6 +1,6 @@
 import booksActions from 'src/app/backend/books/BooksActions';
 import {setHttp} from 'src/app/utils/http';
-import {createHttpMock} from 'test/unit/specHelper.js';
+import {createHttpMock} from 'test/unit/specHelper';
 import latestBookFixture from 'test/unit/fixtures/latestBook.json!';
 import restCommunication from 'src/app/backend/restCommunication';
 
@@ -36,7 +36,6 @@ describe('booksActions', () => {
 
 
   it('calls the correct url', () => {
-
     // if you want to try to test, if restCommunication was called with correct parameters, spyOn the request method
     spyOn(restCommunication, 'get').and.returnValue(createHttpMock(latestBookFixture, 200, {}, true));
 

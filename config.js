@@ -9,16 +9,8 @@ System.config({
   },
   "paths": {
     "*": "*.js",
-    "test/*": "test/*",
     "github:*": "jspm_packages/github/*.js",
-    "npm:*": "jspm_packages/npm/*.js",
-    "babel": "node_modules/babel-core/browser.js",
-    "systemjs": "jspm_packages/system.js",
-    "system-polyfills": "node_modules/systemjs/dist/system-polyfills.js",
-    "es6-module-loader": "jspm_packages/es6-module-loader.js",
-    "systemjs.js.map": "jspm_packages/system.js.map",
-    "system-polyfills.js.map": "node_modules/systemjs/dist/system-polyfills.js.map",
-    "es6-module-loader.js.map": "jspm_packages/es6-module-loader.js.map"
+    "npm:*": "jspm_packages/npm/*.js"
   }
 });
 
@@ -27,7 +19,7 @@ System.config({
     "angular": "github:angular/bower-angular@1.4.3",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "autobind-decorator": "npm:autobind-decorator@1.2.0",
-    "babel": "npm:babel-core@5.7.2",
+    "babel": "npm:babel-core@5.7.4",
     "babel-runtime": "npm:babel-runtime@5.7.0",
     "bluebird": "npm:bluebird@2.9.34",
     "bootstrap-sass": "github:twbs/bootstrap-sass@3.3.5",
