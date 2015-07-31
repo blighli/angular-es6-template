@@ -9,6 +9,7 @@ import 'bluebird';
 import 'immutable';
 import 'eventemitter2';
 import 'loglevel';
+import 'is-my-json-valid';
 import 'autobind-decorator';
 import 'angular';
 import 'angular-ui-router';

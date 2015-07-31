@@ -1,3 +1,4 @@
 export default {
-  logLevel: 'info'
+  logLevel: 'info', // debug, info, warn, error
+  schemaValidationLevel: 1 // 0 == no validation, 1 == log errors, 2 == raise errors
 }

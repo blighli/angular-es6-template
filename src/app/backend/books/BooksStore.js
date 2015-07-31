@@ -62,7 +62,6 @@ class BooksStore extends Store {
 
   @autobind
   onFetchListSuccess(data) {
-    console.log('hier suc2', data);
     let books = data.items.map(item => new Book(item));
 
     this.state = {

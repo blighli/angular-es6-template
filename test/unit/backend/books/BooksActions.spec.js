@@ -3,6 +3,7 @@ import {setHttp} from 'src/app/utils/http';
 import {createHttpMock} from 'test/unit/specHelper';
 import latestBookFixture from 'test/unit/fixtures/latestBook.json!';
 import restCommunication from 'src/app/backend/restCommunication';
+import latestBookSchema from 'src/app/backend/schema/latestBook';
 
 describe('booksActions', () => {
 
@@ -40,7 +41,10 @@ describe('booksActions', () => {
     spyOn(restCommunication, 'get').and.returnValue(createHttpMock(latestBookFixture, 200, {}, true));
 
     booksActions.fetchLatest();
-    expect(restCommunication.get).toHaveBeenCalledWith('https://www.googleapis.com/books/v1/volumes?q=subject:javascript&maxResults=1&orderBy=newest');
+    expect(restCommunication.get)
+      .toHaveBeenCalledWith('https://www.googleapis.com/books/v1/volumes?q=subject:javascript&maxResults=1&orderBy=newest', {}, {
+        schema: latestBookSchema
+      });
   });
 
 });

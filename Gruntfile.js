@@ -186,7 +186,7 @@ module.exports = function (grunt) {
       },
 
       karma: {
-        files: ['src/**/*.js', 'test/**/*.js'],
+        files: ['src/**/*.js', 'test/unit/**/*.js'],
         tasks: ['karma:unit:run'] //NOTE the :run flag
       },
 
